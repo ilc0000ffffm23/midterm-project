@@ -1,7 +1,9 @@
 <template>
   <v-container fluid>
-    <v-card color="#BDBDBD">
+    <v-card class="mx-auto" color="#BDBDBD" style="width:600px">
+      <center>
       <v-card-title>String Manipulator </v-card-title>
+      </center>
       <v-divider></v-divider>
       <v-container>
         <v-text-field label="Enter a String" v-model="text"></v-text-field>

@@ -1,8 +1,10 @@
 <template>
 
   <v-container fluid>
-    <v-card color="#BDBDBD">
+    <v-card class="mx-auto" color="#BDBDBD" style="width:600px">
+      <center>
       <v-card-title>Basic Math Calculator</v-card-title>
+      </center>
       <v-divider></v-divider>
       <v-container>
         <v-text-field label="First Input" v-model.number="f_number"></v-text-field>

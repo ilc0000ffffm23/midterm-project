@@ -61,6 +61,7 @@ const items = ref([
   { title: 'Vuetify', icon: 'mdi-vuejs', path: '/vuetifyApp' },
   { title: 'About Me', icon: 'mdi-account', path: '/aboutmeApp' },
   { title: 'Axios', icon: 'mdi-alien', path: '/axiosdemo' },
+  { title: 'About Project', icon: 'mdi-folder-information', path: '/aboutprojectApp' },
 ])
 
 function toggleDrawer() {

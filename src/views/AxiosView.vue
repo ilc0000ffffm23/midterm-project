@@ -42,6 +42,7 @@ export default {
             return null;
         },
     },
+
     // Custom methods of the Vue Component
     methods: {
         async fetchQuestions() {
