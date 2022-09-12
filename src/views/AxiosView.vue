@@ -2,7 +2,7 @@
     <center>
         <div id="quiz-container">
             <v-card class="rounded-lg mx-auto" color="#757575" max-height="auto">
-                <img alt="Sports" src="img/2.png" style="width: 600px; height: 300px; object-fit: contain;">
+                <img alt="Sports" src="/img/2.png" style="width: 600px; height: 300px; object-fit: contain;">
                 <v-container>
                     <h5>Score: {{score}}/{{questions.length}}</h5>
                     <h3>Question: {{currentNumberQuestion}} / {{questions.length}}</h3>

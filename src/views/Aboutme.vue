@@ -10,7 +10,7 @@
                         </v-card-title>
                     </center>
                     <br>
-                    <img src="img/1.png" alt="Ian" class="img" style="border-radius: 50%; width:200px; height: auto;">
+                    <img src="/img/1.png" alt="Ian" class="img" style="border-radius: 50%; width:200px; height: auto;">
                     <v-card-text style="text-align:center">
                         Hi! My name is Ian Guilan Gaudier. I am a 4th year student in Technological Institute of the
                         Philippines taking

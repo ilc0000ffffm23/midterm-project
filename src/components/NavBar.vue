@@ -37,7 +37,7 @@
           <h3>Ian Guilan B.Gaudier</h3>
         </v-list-item-title>
       </center>
-      <img src="img/1.png" alt="Avatar" style="border-radius: 50%; width:200px; height: auto;">
+      <img src="/img/1.png" alt="Avatar" style="border-radius: 50%; width:200px; height: auto;">
         <br>
       <v-divider></v-divider>
       <v-list-item v-for="item in items" :key="item.title" router :to="item.path" :prepend-icon="item.icon">
