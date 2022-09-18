@@ -62,6 +62,7 @@ const items = ref([
   { title: 'About Me', icon: 'mdi-account', path: '/aboutmeApp' },
   { title: 'Axios', icon: 'mdi-alien', path: '/axiosdemo' },
   { title: 'About Project', icon: 'mdi-folder-information', path: '/aboutprojectApp' },
+  { title: 'Firebase', icon: 'mdi-folder-information', path: '/usercreate' },
 ])
 
 function toggleDrawer() {

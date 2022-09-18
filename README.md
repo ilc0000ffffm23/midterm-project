@@ -1,3 +1,3 @@
-Owner: Ian Guilan Gaudier
+npm install 
 
-Section: IT41S2
+npm run dev

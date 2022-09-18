@@ -6,6 +6,7 @@ import VuetifyView from '../views/Vuetify.vue'
 import AboutmeView from '../views/Aboutme.vue'
 import AxiosView from '../views/AxiosView.vue' 
 import Aboutproject from '../views/Aboutproject.vue' 
+import UserCreate from '../views/UserCreate.vue' 
 
 
 
@@ -46,6 +47,11 @@ const router = createRouter({
       path: '/aboutprojectApp',
       name: 'aboutprojectApp',
       component: Aboutproject
+    },
+    {
+      path: '/usercreate',
+      name: 'usercreate',
+      component: UserCreate
     },
   ]
 })
