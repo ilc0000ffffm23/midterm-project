@@ -27,6 +27,11 @@
         <span>Click for Fun</span>
       </v-btn>
 
+      <v-btn @click="handleSignOut" v-if="isLoggedIn" color="black">
+        <strong><span>Sign Out</span></strong>
+      </v-btn>
+
+
 
     </v-toolbar>
 
@@ -50,9 +55,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from "vue";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { useRouter } from "vue-router";
+//import Swal from "sweetalert2";
 
-const drawer = ref(false)
+const router = useRouter();
+
+const drawer = ref(false);
+
+const isLoggedIn = ref(false);
+
 
 const items = ref([
   { title: 'Dashboard', icon: 'mdi-home', path: '/' },
@@ -62,12 +75,31 @@ const items = ref([
   { title: 'About Me', icon: 'mdi-account', path: '/aboutmeApp' },
   { title: 'Axios', icon: 'mdi-alien', path: '/axiosdemo' },
   { title: 'About Project', icon: 'mdi-folder-information', path: '/aboutprojectApp' },
-  { title: 'Firebase', icon: 'mdi-folder-information', path: '/usercreate' },
 ])
 
+let auth;
+onMounted(() => {
+  auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true;
+      const info = user.email;
+      console.log(info);
+    } else {
+      isLoggedIn.value = false;
+      console.log("not logged in");
+    }
+  });
+});
 function toggleDrawer() {
-  return drawer.value = !drawer.value
+  return (drawer.value = !drawer.value);
 }
+const handleSignOut = () => {
+  signOut(auth).then(() => {
+    router.push("/signin");
+  });
+};
+
 </script>
 
 <style>

@@ -7,6 +7,8 @@ import AboutmeView from '../views/Aboutme.vue'
 import AxiosView from '../views/AxiosView.vue' 
 import Aboutproject from '../views/Aboutproject.vue' 
 import UserCreate from '../views/UserCreate.vue' 
+import Signin from '../views/Signin.vue' 
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 
 
@@ -16,32 +18,50 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/stringApp',
       name: 'StringAppView',
-      component: StringAppView
+      component: StringAppView,
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/basicMath',
       name: 'basicMath',
-      component: BasicMathView
+      component: BasicMathView,
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/vuetifyApp',
       name: 'vuetifyApp',
-      component: VuetifyView
+      component: VuetifyView,
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/aboutmeApp',
       name: 'aboutmeApp',
-      component: AboutmeView
+      component: AboutmeView,
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/axiosdemo',
       name: 'axiosdemo',
-      component: AxiosView
+      component: AxiosView,
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/aboutprojectApp',
@@ -53,7 +73,40 @@ const router = createRouter({
       name: 'usercreate',
       component: UserCreate
     },
+    {
+      path: '/signin',
+      name: 'signin',
+      component: Signin
+    },
   ]
 })
+
+
+const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const removeListener = onAuthStateChanged(
+      getAuth(),
+      (user) => {
+        removeListener();
+        resolve(user);
+      },
+      reject
+    );
+  });
+};
+
+router.beforeEach(async (to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (await getCurrentUser()) {
+      next();
+    } else {
+      alert("You must sign-in first!");
+      next("/signin");
+    }
+  } else {
+    next();
+  }
+  
+});
 
 export default router
